@@ -1,0 +1,30 @@
+<p>Counter: {{ counter() }}</p>
+    <button (click)="increment()">Increment</button>
+    <button (click)="decrement()">Decrement</button>
+
+    <p>Message: {{ message() }}</p>
+    <input type="text" #msgInput (keyup.enter)="setMessage(msgInput.value); msgInput.value = ''">
+    <button (click)="setMessage(msgInput.value); msgInput.value = ''">Set Message</button>
+
+    <p>Items:</p>
+    <ul>
+      <li *ngFor="let item of items(); let i = index">
+        {{ item }}
+        <button (click)="removeItem(i)">Remove</button>
+      </li>
+    </ul>
+    <input type="text" #itemInput (keyup.enter)="addItem(itemInput.value); itemInput.value = ''">
+    <button (click)="addItem(itemInput.value); itemInput.value = ''">Add Item</button>
+
+    <p>Loading: {{ isLoading() }}</p>
+    <button (click)="toggleLoading()">Toggle Loading</button>
+
+    <p>User: {{ user() | json }}</p>
+    <button (click)="setUser()">Set User</button>
+    <button (click)="clearUser()">Clear User</button>
+    <br>
+    <button  [routerLink]="['/signal']">Signal</button>
+
+    <p>Observable signal (time): {{ time() }}</p>
+
+<button (click)="reset()">Reset</button>
